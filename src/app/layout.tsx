@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
+import logo from './assets/image/logo.svg'
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "./assets/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./assets/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -28,6 +30,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="flex flex-col justify-center items-center mt-5">
+          <section className={`flex justify-center items-center`}>
+            <Image src={logo} alt="logo" className="w-24 h-auto" />
+            <h1 className={`text-4xl text-center font-semibold drop-shadow-lg text-primary-purple`}>TODO LIST</h1>
+          </section>
+        </header>
         {children}
       </body>
     </html>
